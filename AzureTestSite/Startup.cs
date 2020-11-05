@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccess;
+using Entities;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +26,8 @@ namespace AzureTestSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<RepositoryBase<Post>>();
+            services.AddScoped<RepositoryBase<Comment>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
